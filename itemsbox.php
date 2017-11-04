@@ -207,3 +207,16 @@
 </div>
 
 <?php include('./Layouts/footer.php'); ?>
+<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBl4h7SkK30JszfkAoYXsOXCgHBBlNjB_0",
+    authDomain: "dbase-6206-01.firebaseapp.com",
+    databaseURL: "https://dbase-6206-01.firebaseio.com",
+    projectId: "dbase-6206-01",
+    storageBucket: "dbase-6206-01.appspot.com",
+    messagingSenderId: "173142686947"
+  };
+  firebase.initializeApp(config);
+</script>
