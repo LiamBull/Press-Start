@@ -1,6 +1,6 @@
 function item_card_creation() {
 	var itemBox = document.createElement("div");
-	    itemBox.class= 'col-md-3'
+	    itemBox.className = 'col-md-3'
 	    itemBox.style= 'margin-bottom: 1em; margin-top: 1em;'
 	// 3 wide container holding the contents of the gamebox added the style cuz im lazy
 	    // itemBox.innerHTML += '<div class="col-md-3" style="margin-bottom: 1em; margin-top: 1em;">';
