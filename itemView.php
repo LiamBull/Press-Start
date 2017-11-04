@@ -22,14 +22,14 @@
         <!-- PRICES -->
         <div class="col-md-7">
           <div class="row">
-            <div class="col-md-6" style="background-color: purple;">
+            <div class="col-md-6" style="padding: 5%;">
               <div class="price">
                 <h5>NEW</h5>
                 $1159.99
               </div>
             </div>
 
-            <div class="col-md-6" style="background-color: orange;">
+            <div class="col-md-6" style="padding: 5%;">
               <div class="price">
                 <h5>RECYCLED</h5>
                 $39.99
@@ -39,13 +39,13 @@
           </div>
 
           <div class="row">
-            <div class="col-md-3" style="background-color: yellow; ">
+            <div class="col-md-3">
               <div class="rating">
                 <img class="ratingImg" src="http://images2.wikia.nocookie.net/__cb20121105184161/nintendo/en/images/1/12/ESRB_M.png">
               </div>
             </div>
 
-            <div class="col-md-9" style="background-color: green; ">
+            <div class="col-md-9">
               <div class="genre">
                 <p>Genre</p>
               </div>
