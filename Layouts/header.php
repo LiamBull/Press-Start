@@ -6,6 +6,19 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="icon" href="../../../../favicon.ico">
+  <script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyBl4h7SkK30JszfkAoYXsOXCgHBBlNjB_0",
+      authDomain: "dbase-6206-01.firebaseapp.com",
+      databaseURL: "https://dbase-6206-01.firebaseio.com",
+      projectId: "dbase-6206-01",
+      storageBucket: "dbase-6206-01.appspot.com",
+      messagingSenderId: "173142686947"
+    };
+    firebase.initializeApp(config);
+  </script>
   <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
   <title>GameBox Items</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
