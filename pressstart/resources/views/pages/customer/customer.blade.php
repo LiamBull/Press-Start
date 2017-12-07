@@ -22,7 +22,7 @@
 						<th>Last Name</th>
 						<th>Phone #</th>
 						<th>Email</th>
-						<th class="text-right">Edit</th>
+						<th class="text-right">View/Edit</th>
 						<th class="text-right">Delete</th>
 					</tr>
 				</thead>

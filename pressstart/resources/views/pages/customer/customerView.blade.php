@@ -4,20 +4,44 @@
 
 <div class="container">
 	<div class="row">
-		<div class="col-md-1"></div>
+		<div class="col-md-2"></div>
 
-		<div class="col-md-10">
-			<h2>John Doe
-				<span class="pull-right">
-					ID: 1234
-				</span>
-			</h2>
+		<div class="col-md-10 text-center">
+			<form>
+				<h3>
+				<div class="row">
+					<div class="form-group col-md-3">
+						<label for="formGroupId">Customer ID</label>
+						<input type="text" class="form-control" id="formGroupId" value="C1234" readonly/>
+					</div>
+					<div class="form-group col-md-3">
+						<label for="formGroupFirstName">First Name</label>
+						<input type="text" class="form-control" id="formGroupFirstName" placeholder="First Name" value="John" required/>
+					</div>
+					<div class="form-group col-md-4">
+						<label for="formGroupLastName">Last Name</label>
+						<input type="text" class="form-control" id="formGroupLastName" placeholder="Last Name" value="Doe" required/>
+					</div>
+				</div>
+				</h3>
 
-			<h3>905-123-4567
-				<span class="pull-right">
-					john.doe@gmail.com
-				</span>
-			</h3>
+				<h3>
+				<div class="row">
+					<div class="form-group col-md-5">
+						<label for="formGroupPhone">Phone</label>
+						<input type="text" class="form-control" id="formGroupPhone" placeholder="Phone Number" value="905-123-4567" required/>
+					</div>
+					<div class="form-group col-md-5">
+						<label for="formGroupEmail">Email</label>
+						<input type="text" class="form-control" id="formGroupEmail" placeholder="Email" value="john.doe@gmail.com" required/>
+					</div>
+				</div>
+				</h3>
+
+				<div class="row col-md-10">
+					<button type="submit" class="btn btn-primary">Save Changes</button>
+				</div>
+			</form>	
 		</div>
 
 		<div class="col-md-1"></div>

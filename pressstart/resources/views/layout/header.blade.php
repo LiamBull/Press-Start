@@ -33,9 +33,10 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/customer">Customers</a></li>
+                    <li><a href="/employee">Employees</a></li>
                     <li><a href="/item">Items</a></li>
+                    <li><a href="/preorder">Pre-orders</a></li>
                     <li><a href="/ticket">Tickets</a></li>
-                    <li><a href="#">Pre-order</a></li>
                 </ul>
             </div>
         </div>

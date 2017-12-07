@@ -29,7 +29,11 @@
 					<label for="formGroupEmail">Email</label>
 					<input type="text" class="form-control" id="formGroupEmail" placeholder="Email" required/>
 				</div>
-				<button type="submit" class="btn btn-primary">Create</button>
+				
+				<div class="row text-center">
+					<button type="submit" class="btn btn-primary">Save</button>
+					<a href="/customer" class="btn btn-danger">Cancel</a>
+				</div>
 			</form>
 		</div>
 

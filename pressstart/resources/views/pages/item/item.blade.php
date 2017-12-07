@@ -1,5 +1,61 @@
 @extends ('layout.master')
 
+@section ('content')
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <h2>Inventory Information
+        <small>
+          <span class="btn-group pull-right">
+            <a href="/item/create" class="btn btn-primary">New Item</a>
+          </span>
+        </small>
+      </h2>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Item ID</th>
+            <th>Item Name</th>
+            <th>Product Type</th>
+            <th>Condition</th>
+            <th>Price</th>
+            <th>Console</th>
+            <th class="text-right">Edit</th>
+            <th class="text-right">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- This will likely become a foreach. This is just for demo purposes -->
+          @for ($i = 0; $i < 15; $i++)
+          <tr>
+            <td>I190</td>
+            <td>Last of Us</td>
+            <td>Game</td>
+            <td>New</td>
+            <td>$1159.99</td>
+            <td>PLAYSTATION 4</td>
+            <td class="text-right"><a href="/item/view" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i></a></td>
+            <td class="text-right"><button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button></td>
+          </tr>
+          @endfor
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+@endsection
+
+
+
+
+
+{{-- @extends ('layout.master')
+
 @section('content')
 
 <!-- ROW THAT WILL CONTAIN 4 GAMEBOX ITEMS -->
@@ -206,4 +262,4 @@
   </div>
 </div>
 
-@endsection
+@endsection --}}
