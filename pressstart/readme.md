@@ -1,16 +1,16 @@
 TODO:
-	Documentation:
+	Documentation: [COMPLETED]
 		Matt / Liam
 			Readme	
 			Tutorials
 
-	Database:
-		Liam
+	Database: [NOT COMPLETED]
+		Liam [COMPLETED] ~70%
 			Migrations
-		Nick
+		Nick [COMPLETED]
 			Insert Statements
 
-	Web Pages:
+	Web Pages: [COMPLETED]
 		Brook
 			Create User
 			Delete User
@@ -21,7 +21,7 @@ TODO:
 			Item Edit 
 			Item Create 
 
-	Backend:
+	Backend: [NOT COMPLETED]
 		Nick
 			Login Redirect
 			Login
