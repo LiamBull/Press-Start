@@ -7,7 +7,6 @@
 	<div class="col-md-12">
 
 
-		<!-- ROW 1 YO-->
 		<div class="row">
 			<div class="col-md-3">
 				<h1>Far Cry 5</h1>
@@ -18,7 +17,6 @@
 			</div>
 		</div>
 
-		<!-- ROW 2 YO-->
 		<div class="row">
 			<div class="col-md-12">
 				<h5>by Sony Computer Entertainment</h5>
@@ -26,7 +24,6 @@
 			</div>
 		</div>
 
-		<!-- ROW 3 YO-->
 		<div class="row">
 			<div>
 				<div class="col-md-5 itemImageBox">

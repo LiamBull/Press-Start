@@ -1,12 +1,4 @@
 	<!-- </main> -->
-	<script>
-	// creates the cool more info 
-	$( "div.card" ).hover(
-		function() {
-			$(this).find(".moreInfo").toggleClass("display");
-		}
-		);
-	</script>
 
 	<!-- Bootstrap core JavaScript
 	================================================== -->
@@ -24,4 +16,6 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 	<script src="./js/functions.js"></script>
 </body>
+<footer>
+</footer>
 </html>

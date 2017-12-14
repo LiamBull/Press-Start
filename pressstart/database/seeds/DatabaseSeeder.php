@@ -11,6 +11,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        $this->call('UsersTableSeeder');
+        $this->command->info('Users table seeded.');
+
+        $path = 'sql/inserts.sql';
+        DB::unprepared(file_get_contents($path));
+        $this->command->info('Inserts have run.');
     }
 }
+
+?>

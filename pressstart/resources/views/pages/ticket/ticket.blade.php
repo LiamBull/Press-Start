@@ -33,17 +33,17 @@
 					</tr>
 				</thead>
 				<tbody>
-					@for ($i = 0; $i < 15; $i++)
-					<tr>
-						<td>A120</td>
-						<td>2015-05-02</td>
-						<td>My computer won't work</td>
-						<td class="text-success">Complete</td>
-						<td>C134</td>
-						<td>E102</td>
-						<td><a href="/ticket/view" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i></a></td>
-					</tr>
-					@endfor
+					@foreach ($tickets as $ticket)
+						<tr>
+							<td>{{ $ticket->id }}</td>
+							<td>{{ $ticket->dateSubmitted }}</td>
+							<td>{{ $ticket->description }}</td>
+							<td>{{ $ticket->status }}</td>
+							<td>{{ $ticket->customerID }}</td>
+							<td>{{ $ticket->userID }}</td>
+							<td><a href="/ticket/{{ $ticket->id }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i></a></td>
+						</tr>
+					@endforeach
 				</tbody>
 			</table>
 

@@ -13,7 +13,12 @@ class CreateInvoicesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('invoices', function (Blueprint $table) {
+            $table->increments('id');
+            $table->date('dateCreated');
+            $table->string('customerID');
+            $table->string('balance');
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class CreateInvoicesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('invoices');
     }
 }

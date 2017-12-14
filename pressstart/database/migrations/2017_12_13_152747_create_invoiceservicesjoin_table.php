@@ -13,7 +13,11 @@ class CreateInvoiceservicesjoinTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('invoiceservicesjoin', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('invoiceNumber');
+            $table->string('serviceID');
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class CreateInvoiceservicesjoinTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('invoiceservicesjoin');
     }
 }

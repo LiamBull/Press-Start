@@ -13,7 +13,15 @@ class CreatePreordersTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('preorders', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('itemID');
+            $table->string('customerID');
+            $table->string('userID');
+            $table->string('status');
+            $table->string('balance');
+            $table->date('dateCreated');
+        });
     }
 
     /**
@@ -23,6 +31,6 @@ class CreatePreordersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('preorders');
     }
 }

@@ -14,13 +14,15 @@ class CreateItemsTable extends Migration
     public function up()
     {
         Schema::create('items', function (Blueprint $table) {
-            $table->string('itemID');
+            $table->increments('id');
             $table->string('itemName');
+            $table->string('developer');
             $table->date('releaseDate');
             $table->string('description');
             $table->string('gameImageID');
             $table->string('price');
             $table->string('conditionID');
+            $table->string('productType');
             $table->string('console');
         });
     }
@@ -32,6 +34,6 @@ class CreateItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('items');
     }
 }

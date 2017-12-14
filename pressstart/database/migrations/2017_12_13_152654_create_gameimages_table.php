@@ -13,7 +13,11 @@ class CreateGameimagesTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('gameimages', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('imageLink');
+            $table->string('gameID');
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class CreateGameimagesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('gameimages');
     }
 }

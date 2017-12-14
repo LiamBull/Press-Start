@@ -13,7 +13,11 @@ class CreateInvoiceitemsjoinTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('invoiceitemsjoin', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('invoiceNumber');
+            $table->string('itemID');
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class CreateInvoiceitemsjoinTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('invoiceitemsjoin');
     }
 }

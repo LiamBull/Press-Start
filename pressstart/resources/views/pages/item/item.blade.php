@@ -3,263 +3,51 @@
 @section ('content')
 
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12">
 
-      <h2>Inventory Information
-        <small>
-          <span class="btn-group pull-right">
-            <a href="/item/create" class="btn btn-primary">New Item</a>
-          </span>
-        </small>
-      </h2>
+            <h2>Inventory Information
+                <small>
+                    <span class="btn-group pull-right">
+                        <a href="/item/create" class="btn btn-primary">New Item</a>
+                    </span>
+                </small>
+            </h2>
 
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Item ID</th>
-            <th>Item Name</th>
-            <th>Product Type</th>
-            <th>Condition</th>
-            <th>Price</th>
-            <th>Console</th>
-            <th class="text-right">Edit</th>
-            <th class="text-right">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- This will likely become a foreach. This is just for demo purposes -->
-          @for ($i = 0; $i < 15; $i++)
-          <tr>
-            <td>I190</td>
-            <td>Last of Us</td>
-            <td>Game</td>
-            <td>New</td>
-            <td>$1159.99</td>
-            <td>PLAYSTATION 4</td>
-            <td class="text-right"><a href="/item/view" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i></a></td>
-            <td class="text-right"><button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></button></td>
-          </tr>
-          @endfor
-        </tbody>
-      </table>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Item ID</th>
+                        <th>Item Name</th>
+                        <th>Developer</th>
+                        <th>Release Date</th>
+                        <th>Price</th>
+                        <th>Condition</th>
+                        <th>Console</th>
+                        <th class="text-right">Edit</th>
+                        <th class="text-right">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- This will likely become a foreach. This is just for demo purposes -->
+                    @foreach($items as $item)
+                        <tr>
+                            <td>{{ $item->id }}</td>
+                            <td>{{ $item->itemName }}</td>
+                            <td>{{ $item->developer }}</td>
+                            <td>{{ $item->releaseDate }}</td>
+                            <td>{{ $item->price }}</td>
+                            <td>{{ $item->conditionID }}</td>
+                            <td>{{ $item->console }}</td>
+                            <td class="text-right"><a href="/item/{{ $item->id }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i></a></td>
+                            <td class="text-right"><a href="/item/{{ $item->id }}/delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
     </div>
-
-  </div>
 </div>
 
 @endsection
-
-
-
-
-
-{{-- @extends ('layout.master')
-
-@section('content')
-
-<!-- ROW THAT WILL CONTAIN 4 GAMEBOX ITEMS -->
-<div class="row">
-
-  <!-- 3 wide container holding the contents of the gamebox added the style cuz im lazy -->
-  <div class="col-md-3" style="margin-bottom: 1em; margin-top: 1em;">
-
-    <!-- the actual cardbox -->
-    <div class="card ">
-      <!-- this is what pops up as the user hovers over the item -->
-      <a href="./itemview">  <a href="./itemView.php"> <div class='moreInfo'><p class="info">More Info</p></div></a></a>
-      <!-- div that Contains the img -->
-      <div class="gameArt">
-        <!-- status of the stock if there out itll pop up -->
-        <div class='statusDiv statusOutOfStock'>Out of Stock</div>
-        <!-- actual image containing the game art stored -->
-        <img class='GameArtImage' src="https://static-ca.ebgames.ca/images/products/732794/3max.jpg" alt="Game Art">
-
-      </div>
-
-      <!-- GAME INFO OVERVIEW -->
-      <p class="card-title"> Overwatch </p>
-      <p class="card-system">Xbox One </p>
-      <p class="card-price"> $69.99</p>
-
-    </div> <!-- END OF CARD DIV -->
-  </div>   <!-- END OF COL DIV -->
-
-
-  <!-- 3 wide container holding the contents of the gamebox -->
-  <div class="col-md-3" style="margin-bottom: 1em; margin-top: 1em;">
-    <!-- the actual cardbox -->
-    <div class="card ">
-      <a href="./itemview"> <div class='moreInfo'><p class="info">More Info</p></div></a>
-      <!-- Contains the img -->
-      <div class="gameArt">
-        <div class='statusDiv statusNew'>New</div>
-        <img class='GameArtImage' src="https://static-ca.ebgames.ca/images/products/731029/3max.jpg" alt="Game Art">
-
-      </div>
-
-
-      <p class="card-title">
-        Overwatch
-      </p>
-      <p class="card-system">
-        Xbox One
-      </p>
-      <p class="card-price">
-        $69.99
-      </p>
-    </div>
-  </div>
-
-  <!-- 3 wide container holding the contents of the gamebox -->
-  <div class="col-md-3" style="margin-bottom: 1em; margin-top: 1em;">
-    <!-- the actual cardbox -->
-    <div class="card ">
-      <a href="./itemview"> <div class='moreInfo'><p class="info">More Info</p></div></a>
-      <!-- Contains the img -->
-      <div class="gameArt">
-        <div class='statusDiv statusRecycled'>Recycled</div>
-        <img class='GameArtImage' src="https://static-ca.ebgames.ca/images/products/732794/3max.jpg" alt="Game Art">
-
-      </div>
-
-
-      <p class="card-title">
-        Overwatch
-      </p>
-      <p class="card-system">
-        Xbox One
-      </p>
-      <p class="card-price">
-        $69.99
-      </p>
-    </div>
-  </div>
-  <!-- 3 wide container holding the contents of the gamebox -->
-  <div class="col-md-3" style="margin-bottom: 1em; margin-top: 1em;">
-    <!-- the actual cardbox -->
-    <div class="card ">
-      <a href="./itemview"> <div class='moreInfo'><p class="info">More Info</p></div></a>
-      <!-- Contains the img -->
-      <div class="gameArt">
-
-        <img class='GameArtImage' src="https://static-ca.ebgames.ca/images/products/732794/3max.jpg" alt="Game Art">
-
-      </div>
-
-
-      <p class="card-title">
-        Overwatch
-      </p>
-      <p class="card-system">
-        Xbox One
-      </p>
-      <p class="card-price">
-        $69.99
-      </p>
-    </div>
-  </div>
-</div>
-
-<div class="row">
-
-  <!-- 3 wide container holding the contents of the gamebox -->
-  <div class="col-md-3" style="margin-bottom: 1em; margin-top: 1em;">
-    <!-- the actual cardbox -->
-    <div class="card ">
-      <a href="./itemview"> <div class='moreInfo'><p class="info">More Info</p></div></a>
-      <!-- Contains the img -->
-      <div class="gameArt">
-        <div class='statusDiv statusOutOfStock'>Out of Stock</div>
-        <img class='GameArtImage' src="https://static-ca.ebgames.ca/images/products/717423/2med.jpg" alt="Game Art">
-
-      </div>
-
-
-      <p class="card-title">
-        Overwatch
-      </p>
-      <p class="card-system">
-        Xbox One
-      </p>
-      <p class="card-price">
-        $69.99
-      </p>
-    </div>
-  </div>
-  <!-- 3 wide container holding the contents of the gamebox -->
-  <div class="col-md-3" style="margin-bottom: 1em; margin-top: 1em;">
-    <!-- the actual cardbox -->
-    <div class="card ">
-      <a href="./itemview"> <div class='moreInfo'><p class="info">More Info</p></div></a>
-      <!-- Contains the img -->
-      <div class="gameArt">
-        <div class='statusDiv statusNew'>New</div>
-        <img class='GameArtImage' src="https://static-ca.ebgames.ca/images/products/734015/2med.jpg" alt="Game Art">
-
-      </div>
-
-
-      <p class="card-title">
-        Xbox One X
-      </p>
-      <p class="card-system">
-        Xbox One
-      </p>
-      <p class="card-price">
-        $599.99
-      </p>
-    </div>
-  </div>
-
-  <!-- 3 wide container holding the contents of the gamebox -->
-  <div class="col-md-3" style="margin-bottom: 1em; margin-top: 1em;">
-    <!-- the actual cardbox -->
-    <div class="card ">
-      <a href="./itemview"> <div class='moreInfo'><p class="info">More Info</p></div></a>
-      <!-- Contains the img -->
-      <div class="gameArt">
-        <div class='statusDiv statusRecycled'>Recycled</div>
-        <img class='GameArtImage' src="https://static-ca.ebgames.ca/images/products/729015/2med.jpg" alt="Game Art">
-
-      </div>
-
-
-      <p class="card-title">
-        Overwatch
-      </p>
-      <p class="card-system">
-        Xbox One
-      </p>
-      <p class="card-price">
-        $69.99
-      </p>
-    </div>
-  </div>
-  <!-- 3 wide container holding the contents of the gamebox -->
-  <div class="col-md-3" style="margin-bottom: 1em; margin-top: 1em;">
-    <!-- the actual cardbox -->
-    <div class="card ">
-      <a href="./itemview"> <div class='moreInfo'><p class="info">More Info</p></div></a>
-      <!-- Contains the img -->
-      <div class="gameArt">
-
-        <img class='GameArtImage' src="https://static-ca.ebgames.ca/images/products/729007/3max.jpg" alt="Game Art">
-
-      </div>
-
-
-      <p class="card-title">
-        Overwatch
-      </p>
-      <p class="card-system">
-        Xbox One
-      </p>
-      <p class="card-price">
-        $69.99
-      </p>
-    </div>
-  </div>
-</div>
-
-@endsection --}}

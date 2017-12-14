@@ -9,27 +9,37 @@
 
 		<div class="col-md-8">
 			<h2 class="text-center">Item Creation</h2>
-			<form>
+
+			<form action="/item/create" method="POST">
+				{{ csrf_field() }}
+
+				<div class="row">
+					<div class="form-group col-md-12">
+						<label for="itemName">Name/Title</label>
+						<input name="itemName" type="text" class="form-control" id="itemName" placeholder="Name/Title" required/>
+					</div>
+				</div>
+
 				<div class="row">
 					<div class="form-group col-md-6">
-						<label for="formGroupName">Name/Title</label>
-						<input type="text" class="form-control" id="formGroupName" placeholder="Name/Title" required/>
+						<label for="releaseDate">Release Date</label>
+						<input name="releaseDate" type="text" class="form-control" id="releaseDate" placeholder="YYYY-MM-DD" required/>
 					</div>
 					<div class="form-group col-md-6">
-						<label for="formGroupDate">Release Date</label>
-						<input type="text" class="form-control" id="formGroupDate" placeholder="MM-DD-YYYY" required/>
+						<label for="developer">Developer</label>
+						<input name="developer" type="text" class="form-control" id="developer" placeholder="Developer" required/>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label for="formGroupDescription">Description</label>
-					<input type="text" class="form-control" id="formGroupDescription" placeholder="Description" required/>
+					<input name="description" type="text" class="form-control" id="formGroupDescription" placeholder="Description" required/>
 				</div>
 
 				<div class="row">
 					<div class="form-group col-md-6">
 						<label for="formGroupType">Product Type</label>
-						<select name="type" class="form-control">
+						<select name="productType" class="form-control">
 						  <option value="game" selected>Game</option>
 						  <option value="console">Console</option>
 						  <option value="accessory">Accessory</option>
@@ -37,7 +47,7 @@
 					</div>
 					<div class="form-group col-md-6">
 						<label for="formGroupType">Condition</label>
-						<select name="type" class="form-control">
+						<select name="conditionID" class="form-control">
 						  <option value="new" selected>New</option>
 						  <option value="good">Good</option>
 						  <option value="okay">Okay</option>
@@ -49,21 +59,21 @@
 				<div class="row">
 					<div class="form-group col-md-6">
 						<label for="formGroupPrice">Price</label>
-						<input type="text" class="form-control" id="formGroupPrice" placeholder="$##.##" required/>
+						<input name="price" type="text" class="form-control" id="formGroupPrice" placeholder="$##.##" required/>
 					</div>
 					<div class="form-group col-md-6">
 						<label for="formGroupType">Console</label>
-						<select name="type" class="form-control">
-						  <option value="ps4" selected>Playstation 4</option>
-						  <option value="xbox1">xBox One</option>
-						  <option value="nintendo_switch">Nintendo Switch</option>
-						  <option value="snes">Super Nintendo</option>
+						<select name="console" class="form-control">
+						  <option value="Playstation 4" selected>Playstation 4</option>
+						  <option value="Xbox 1">xBox One</option>
+						  <option value="Nintendo Switch">Nintendo Switch</option>
+						  <option value="SNES">Super Nintendo</option>
 						</select>
 					</div>
 				</div>
 				<div class="row text-center">
 					<button type="submit" class="btn btn-primary">Save</button>
-					<a href="#" class="btn btn-danger">Cancel</a>
+					<a href="/item" class="btn btn-danger">Cancel</a>
 				</div>
 			</form>
 		</div>

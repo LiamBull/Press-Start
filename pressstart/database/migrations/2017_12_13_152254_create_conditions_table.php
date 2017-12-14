@@ -14,7 +14,7 @@ class CreateConditionsTable extends Migration
     public function up()
     {
         Schema::create('conditions', function (Blueprint $table) {
-            $table->string('conditionID');
+            $table->increments('id');
             $table->string('conditionName');
             $table->string('conditionDescription');
             $table->string('makrdownPerc');

@@ -7,35 +7,36 @@
 		<div class="col-md-2"></div>
 
 		<div class="col-md-10 text-center">
-			<form>
+			<form action="/customer/{{ $customer->id }}" method="POST">
+				{{ csrf_field() }}
 				<h3>
-				<div class="row">
-					<div class="form-group col-md-3">
-						<label for="formGroupId">Customer ID</label>
-						<input type="text" class="form-control" id="formGroupId" value="C1234" readonly/>
+					<div class="row">
+						<div class="form-group col-md-3">
+							<label for="formGroupId">Customer ID</label>
+							<input type="text" class="form-control" id="formGroupId" value="{{ $customer->id }}" readonly/>
+						</div>
+						<div class="form-group col-md-3">
+							<label for="formGroupFirstName">First Name</label>
+							<input name="firstName" type="text" class="form-control" id="formGroupFirstName" value="{{ $customer->firstName }}" required/>
+						</div>
+						<div class="form-group col-md-4">
+							<label for="formGroupLastName">Last Name</label>
+							<input name="lastName" type="text" class="form-control" id="formGroupLastName" value="{{ $customer->lastName }}" required/>
+						</div>
 					</div>
-					<div class="form-group col-md-3">
-						<label for="formGroupFirstName">First Name</label>
-						<input type="text" class="form-control" id="formGroupFirstName" placeholder="First Name" value="John" required/>
-					</div>
-					<div class="form-group col-md-4">
-						<label for="formGroupLastName">Last Name</label>
-						<input type="text" class="form-control" id="formGroupLastName" placeholder="Last Name" value="Doe" required/>
-					</div>
-				</div>
 				</h3>
 
 				<h3>
-				<div class="row">
-					<div class="form-group col-md-5">
-						<label for="formGroupPhone">Phone</label>
-						<input type="text" class="form-control" id="formGroupPhone" placeholder="Phone Number" value="905-123-4567" required/>
+					<div class="row">
+						<div class="form-group col-md-5">
+							<label for="formGroupPhone">Phone</label>
+							<input name="phoneNumber" type="text" class="form-control" id="formGroupPhone" value="{{ $customer->phoneNumber }}" required/>
+						</div>
+						<div class="form-group col-md-5">
+							<label for="formGroupEmail">Email</label>
+							<input name="email" type="text" class="form-control" id="formGroupEmail" placeholder="Email" value="{{ $customer->email }}" required/>
+						</div>
 					</div>
-					<div class="form-group col-md-5">
-						<label for="formGroupEmail">Email</label>
-						<input type="text" class="form-control" id="formGroupEmail" placeholder="Email" value="john.doe@gmail.com" required/>
-					</div>
-				</div>
 				</h3>
 
 				<div class="row col-md-10">
@@ -98,7 +99,7 @@
 				</tbody>
 			</table>
 		</div>
-	
+
 	</div> <!-- End Row 2 -->
 </div>
 

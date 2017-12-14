@@ -9,15 +9,18 @@
 
 		<div class="col-md-8">
 			<h2 class="text-center">Ticket Creation</h2>
-			<form>
+
+			<form action="/ticket/create" method="POST">
+				{{ csrf_field() }}
+
 				<div class="form-group">
 					<label for="formGroupDescription">Description</label>
-					<input type="text" class="form-control" id="formGroupDescription" placeholder="Description" required/>
+					<input name="description" type="text" class="form-control" id="formGroupDescription" placeholder="Description" required/>
 				</div>
 
 				<div class="form-group">
 					<label for="formGroupCustomerID">Customer ID</label>
-					<input type="text" class="form-control" id="formGroupCustomerID" placeholder="Customer ID" required/>
+					<input name="customerID" type="text" class="form-control" id="formGroupCustomerID" placeholder="Customer ID" required/>
 				</div>
 
 				<button type="submit" class="btn btn-primary">Create</button>

@@ -9,25 +9,27 @@
 
 		<div class="col-md-8">
 			<h2 class="text-center">Customer Creation</h2>
-			<form>
+
+			<form action="/customer/create" method="POST">
+				{{ csrf_field() }}
 				<div class="form-group">
 					<label for="formGroupFirstName">First Name</label>
-					<input type="text" class="form-control" id="formGroupFirstName" placeholder="First Name" required/>
+					<input name="firstName" type="text" class="form-control" id="formGroupFirstName" placeholder="First Name" required/>
 				</div>
 
 				<div class="form-group">
 					<label for="formGroupLastName">Last Name</label>
-					<input type="text" class="form-control" id="formGroupLastName" placeholder="Last Name" required/>
+					<input name="lastName" type="text" class="form-control" id="formGroupLastName" placeholder="Last Name" required/>
 				</div>
 
 				<div class="form-group">
 					<label for="formGroupPhone">Phone #</label>
-					<input type="text" class="form-control" id="formGroupPhone" placeholder="Phone #" required/>
+					<input name="phoneNumber" type="text" class="form-control" id="formGroupPhone" placeholder="Phone #" required/>
 				</div>
 				
 				<div class="form-group">
 					<label for="formGroupEmail">Email</label>
-					<input type="text" class="form-control" id="formGroupEmail" placeholder="Email" required/>
+					<input name="email" type="text" class="form-control" id="formGroupEmail" placeholder="Email" required/>
 				</div>
 				
 				<div class="row text-center">
