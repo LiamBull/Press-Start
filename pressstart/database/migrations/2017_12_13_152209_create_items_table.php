@@ -19,9 +19,9 @@ class CreateItemsTable extends Migration
             $table->string('developer');
             $table->date('releaseDate');
             $table->string('description');
-            $table->string('gameImageID');
+            $table->string('image');
             $table->string('price');
-            $table->string('conditionID');
+            $table->string('condition');
             $table->string('productType');
             $table->string('console');
         });

@@ -29,6 +29,10 @@
 			<a href="/item" class="btn btn-danger">Cancel</a>
 		</div>
 	</form>
+	
+	<br />
+
+	@include('layout.errors')
 </div>
 
 @endsection

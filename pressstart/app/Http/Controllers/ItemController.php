@@ -30,12 +30,12 @@ class ItemController extends Controller
     {
         $this->validate(request(), [
             'itemName' => 'required',
-            'releaseDate' => 'required',
+            'releaseDate' => 'required|date',
             'developer' => 'required',
             'description' => 'required',
             'productType' => 'required',
-            'price' => 'required',
-            'conditionID' => 'required',
+            'price' => 'required|numeric|min:0',
+            'condition' => 'required',
             'console' => 'required'
         ]);
 
@@ -46,7 +46,7 @@ class ItemController extends Controller
         $item->releaseDate = $request->releaseDate;
         $item->description = $request->description;
         $item->price = $request->price;
-        $item->conditionID = $request->conditionID;
+        $item->condition = $request->condition;
         $item->console = $request->console;
         $item->productType = $request->productType;
 
@@ -64,7 +64,7 @@ class ItemController extends Controller
             'description' => 'required',
             'productType' => 'required',
             'price' => 'required',
-            'conditionID' => 'required',
+            'condition' => 'required',
             'console' => 'required'
         ]);
 
@@ -75,7 +75,7 @@ class ItemController extends Controller
         $item->releaseDate = $request->releaseDate;
         $item->description = $request->description;
         $item->price = $request->price;
-        $item->conditionID = $request->conditionID;
+        $item->condition = $request->condition;
         $item->console = $request->console;
         $item->productType = $request->productType;
 

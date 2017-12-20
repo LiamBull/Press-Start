@@ -24,12 +24,12 @@
 
 				<div class="form-group">
 					<label for="formGroupPhone">Phone #</label>
-					<input name="phoneNumber" type="text" class="form-control" id="formGroupPhone" placeholder="Phone #" required/>
+					<input name="phoneNumber" type="tel" class="form-control" id="formGroupPhone" placeholder="Phone #" required/>
 				</div>
 				
 				<div class="form-group">
 					<label for="formGroupEmail">Email</label>
-					<input name="email" type="text" class="form-control" id="formGroupEmail" placeholder="Email" required/>
+					<input name="email" type="email" class="form-control" id="formGroupEmail" placeholder="Email" required/>
 				</div>
 				
 				<div class="row text-center">
@@ -37,6 +37,10 @@
 					<a href="/customer" class="btn btn-danger">Cancel</a>
 				</div>
 			</form>
+			
+			<br />
+
+			@include('layout.errors')
 		</div>
 
 		<div class="col-md-2"></div>

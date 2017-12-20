@@ -21,7 +21,7 @@
 				<div class="row">
 					<div class="form-group col-md-6">
 						<label for="releaseDate">Release Date</label>
-						<input name="releaseDate" type="text" class="form-control" id="releaseDate" value="{{ $item->releaseDate }}" required/>
+						<input name="releaseDate" type="date" class="form-control" id="releaseDate" value="{{ $item->releaseDate }}" required/>
 					</div>
 					<div class="form-group col-md-6">
 						<label for="developer">Developer</label>
@@ -46,8 +46,8 @@
 						</select>
 					</div>
 					<div class="form-group col-md-6">
-						<label for="formGroupType">Condition</label>
-						<select name="conditionID" class="form-control">
+						<label for="condition">Condition</label>
+						<select name="condition" class="form-control">
 							<option value="New" selected>New</option>
 							<option value="Good">Good</option>
 							<option value="Okay">Okay</option>
@@ -59,15 +59,15 @@
 				<div class="row">
 					<div class="form-group col-md-6">
 						<label for="formGroupPrice">Price</label>
-						<input name="price" type="text" class="form-control" id="formGroupPrice" value="{{ $item->price }}" required/>
+						<input name="price" type="number" min="0.00" class="form-control" id="formGroupPrice" value="{{ $item->price }}" required/>
 					</div>
 					<div class="form-group col-md-6">
 						<label for="formGroupType">Console</label>
 						<select name="console" class="form-control">
-							<option value="ps4" selected>Playstation 4</option>
-							<option value="xbox1">xBox One</option>
-							<option value="nintendo_switch">Nintendo Switch</option>
-							<option value="snes">Super Nintendo</option>
+							<option value="Playstation 4" selected>Playstation 4</option>
+							<option value="Xbox 1">xBox One</option>
+							<option value="Nintendo Switch">Nintendo Switch</option>
+							<option value="SNES">Super Nintendo</option>
 						</select>
 					</div>
 				</div>
@@ -76,6 +76,10 @@
 					<a href="#" class="btn btn-danger">Cancel</a>
 				</div>
 			</form>
+			
+			<br />
+
+			@include('layout.errors')
 		</div>
 
 		<div class="col-md-2"></div>

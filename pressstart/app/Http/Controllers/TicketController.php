@@ -37,11 +37,11 @@ class TicketController extends Controller
 		$ticket = new Ticket;
 
 		$ticket->description = $request->description;
-		$ticket->customerID = $request->customerID;
+		$ticket->customer_id = $request->customerID;
 		$ticket->status = 'Open';
 		$ticket->dateSubmitted = Carbon::now();
 		$ticket->comments = null;
-		$ticket->userID = $request->user()->id;
+		$ticket->user_id = $request->user()->id;
 
 		$ticket->save();
 

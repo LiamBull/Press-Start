@@ -2,8 +2,6 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
 /* Add Rating Pending (RP) */
 
 class Item extends Model
@@ -11,11 +9,16 @@ class Item extends Model
     public $timestamps = false;
 
     protected $attributes = [
-    	'gameImageID' => 'value'
+    	'image' => 'default'
     ];
 
     public function preorder()
     {
-    	return $this->hasOne('App\Preorder', 'id');
+    	return $this->belongsTo(Preorder::class);
+    }
+
+    public function invoice()
+    {
+    	return $this->belongsTo(Invoice::class);
     }
 }

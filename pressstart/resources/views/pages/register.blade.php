@@ -25,7 +25,10 @@
 
 				<div class="form-group">
 					<label for="type">Type</label>
-					<input name="type" type="text" class="form-control" id="type" placeholder="Type" required/>
+						<select name="type" class="form-control">
+							<option value="G" selected>General</option>
+							<option value="A">Admin</option>
+						</select>
 				</div>
 
 				<div class="form-group">
@@ -40,7 +43,7 @@
 
 				<div class="form-group">
 					<label for="phonenumber">Phone Number</label>
-					<input name="phonenumber" type="text" class="form-control" id="phonenumber" placeholder="Phone Number" required/>
+					<input name="phonenumber" type="tel" class="form-control" id="phonenumber" placeholder="Phone Number" required/>
 				</div>
 
 				<div class="form-group">
@@ -61,6 +64,10 @@
 				<button type="submit" class="btn btn-primary">Submit</button>
 
 			</form>
+			
+			<br />
+
+			@include('layout.errors')
 		</div>
 
 		<div class="col-md-3"></div>

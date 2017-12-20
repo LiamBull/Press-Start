@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 
 class PreorderController extends Controller
 {
-    public function __construct()
+	public function __construct()
 	{
 		$this->middleware('auth');
 	}
@@ -34,21 +34,37 @@ class PreorderController extends Controller
 	{
 		$this->validate(request(), [
 			'itemName' => 'required',
-			'customerEmail' => 'required'
+			'customerEmail' => 'required|email'
 		]);
 
 		$itemName = $request->itemName;
-		$itemID = Item::where('itemName', $itemName)->value('id');
+		$item_id = Item::where('itemName', $itemName)->value('id');
 
 		$customerEmail = $request->customerEmail;
-		$customerID = Customer::where('email', $customerEmail)->value('id');
+		$customer_id = Customer::where('email', $customerEmail)->value('id');
+
+		$balance = Item::where('itemName', $itemName)->value('price');
 
 		$preorder = new Preorder;
 
-		$preorder->itemID = $itemID;
-		$preorder->customerID = $customerID;
+		$preorder->item_id = $item_id;
+		$preorder->customer_id = $customer_id;
 		$preorder->dateCreated = Carbon::now();
-		$preorder->userID = $request->user()->id;
+		$preorder->user_id = $request->user()->id;
+		$preorder->status = 'Open';
+		$preorder->balance = $balance;
+
+		$preorder->save();
+
+		return redirect('/preorder');
+	}
+
+	public function complete($id)
+	{
+		$preorder = Preorder::find($id);
+
+		$preorder->status = 'Completed';
+		$preorder->balance = '0';
 
 		$preorder->save();
 
@@ -60,5 +76,14 @@ class PreorderController extends Controller
 		$preorder = DB::table('preorders')->where('id', $id)->first();
 
 		return view('pages.preorder.preorderView', compact('preorder'));
+	}
+
+	public function delete($id)
+	{
+		$preorder = Preorder::find($id);
+
+		$preorder->delete();
+
+		return redirect('/preorder');
 	}
 }

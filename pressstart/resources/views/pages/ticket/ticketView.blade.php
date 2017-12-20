@@ -27,7 +27,7 @@
 					</div>
 					<div class="form-group col-md-6">
 						<label for="userID">User ID</label>
-						<input name="userID" type="text" class="form-control" id="userID" value="{{ $ticket->userID }}" readonly/>
+						<input name="userID" type="text" class="form-control" id="userID" value="{{ $ticket->user_id }}" readonly/>
 					</div>
 				</div>
 
@@ -38,7 +38,7 @@
 					</div>
 					<div class="form-group col-md-4">
 						<label for="customerID">Customer ID</label>
-						<input name="customerID" type="text" class="form-control" id="customerID" value="{{ $ticket->customerID }}" readonly/>
+						<input name="customerID" type="text" class="form-control" id="customerID" value="{{ $ticket->customer_id }}" readonly/>
 					</div>
 					<div class="form-group col-md-4">
 						<label for="status">Status</label>
@@ -61,6 +61,10 @@
 					<a href="/ticket" class="btn btn-danger">Cancel</a>
 				</div>
 			</form>
+			
+			<br />
+
+			@include('layout.errors')
 		</div>
 
 		<div class="col-md-2"></div>

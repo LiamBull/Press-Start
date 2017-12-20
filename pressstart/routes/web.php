@@ -30,7 +30,8 @@ Route::get('/preorder', 'PreorderController@index');
 Route::get('/preorder/create', 'PreorderController@create');
 Route::post('/preorder/create', 'PreorderController@store');
 Route::get('/preorder/{id}', 'PreorderController@view');
-Route::post('/preorder/{id}', 'PreorderController@update');
+Route::get('/preorder/{id}/delete', 'PreorderController@delete');
+Route::get('/preorder/{id}/complete', 'PreorderController@complete');
 
 /* Ticket Routes */
 Route::get('/ticket', 'TicketController@index');

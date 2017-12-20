@@ -38,7 +38,7 @@ class CustomerController extends Controller
         $this->validate(request(), [
             'firstName' => 'required',
             'lastName' => 'required',
-            'phoneNumber' => 'required',
+            'phoneNumber' => 'required|regex:/[0-9]{10}/',
             'email' => 'required|email'
         ]);
 
@@ -59,7 +59,7 @@ class CustomerController extends Controller
         $this->validate(request(), [
             'firstName' => 'required',
             'lastName' => 'required',
-            'phoneNumber' => 'required',
+            'phoneNumber' => 'required|regex:/[0-9]{10}/',
             'email' => 'required|email'
         ]);
 

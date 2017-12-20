@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class LoginController extends Controller
 {
@@ -24,7 +25,7 @@ class LoginController extends Controller
 		} 
 		else 
 		{
-			return back();
+			return Redirect::back()->withErrors(['Invalid user ID or password!']);
 		}		
 	}
 

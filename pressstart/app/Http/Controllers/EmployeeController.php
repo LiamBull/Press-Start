@@ -29,9 +29,9 @@ class EmployeeController extends Controller
             'userName' => 'required',
             'fullName' => 'required',
             'type' => 'required',
-            'SIN' => 'required',
+            'SIN' => 'required|numeric|size:9',
             'email' => 'required|email',
-            'phoneNumber' => 'required',
+            'phoneNumber' => 'required|numeric|size:10',
             'address' => 'required'
         ]);
 

@@ -2,14 +2,22 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
 class Customer extends Model
 {
     public $timestamps = false;
 
     public function preorder()
 	{
-		return $this->hasMany('App\Preorder', 'customerID');
+		return $this->hasMany(Preorder::class);
+	}
+
+	public function invoices()
+	{
+		return $this->hasMany(Invoice::class);
+	}
+
+	public function tickets()
+	{
+		return $this->hasMany(Ticket::class);
 	}
 }

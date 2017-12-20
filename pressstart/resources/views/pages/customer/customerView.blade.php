@@ -30,48 +30,60 @@
 					<div class="row">
 						<div class="form-group col-md-5">
 							<label for="formGroupPhone">Phone</label>
-							<input name="phoneNumber" type="text" class="form-control" id="formGroupPhone" value="{{ $customer->phoneNumber }}" required/>
+							<input name="phoneNumber" type="tel" class="form-control" id="formGroupPhone" value="{{ $customer->phoneNumber }}" required/>
 						</div>
 						<div class="form-group col-md-5">
 							<label for="formGroupEmail">Email</label>
-							<input name="email" type="text" class="form-control" id="formGroupEmail" placeholder="Email" value="{{ $customer->email }}" required/>
+							<input name="email" type="email" class="form-control" id="formGroupEmail" placeholder="Email" value="{{ $customer->email }}" required/>
 						</div>
 					</div>
 				</h3>
-
-				<div class="row col-md-10">
-					<button type="submit" class="btn btn-primary">Save Changes</button>
+				<div class="row">
+					<div class="col-md-10">
+						<button type="submit" class="btn btn-primary">Save Changes</button>
+					</div>
 				</div>
-			</form>	
+			</form>
+			
+			<br />
+			<div class="row">
+				<div class="col-md-10">
+					@include('layout.errors')
+				</div>
+			</div>
 		</div>
 
 		<div class="col-md-1"></div>
 	</div> <!-- End Row 1 -->
 
-	<div class="row">
+	{{-- <div class="row">
 
 		<div class="col-md-5">
 			<h4 class="text-center">Purchases</h4>
 			<table class="table table-striped">
 				<thead>
 					<tr>
-						<th>Item</th>
-						<th>Price</th>
+						<th>ID</th>
 						<th>Purchase Date</th>
-						<th>Warranty Expiration</th>
+						<th>Price</th>
+						<th>Item Name</th>
+						<th>Status</th>
+						<th>View</th>
 					</tr>
 				</thead>
 				<tbody>
-					@for ($i = 0; $i < 15; $i++)
-					<tr>
-						<td>Bad Rats</td>
-						<td>$10</td>
-						<td>2017-01-01</td>
-						<td>2017-01-02</td> <!-- This date will only be present for hardware -->
-					</tr>
-					@endfor
+					@foreach($customer->invoices as $invoice)
+						<tr>
+							<td>{{ $invoice->id }}</td>
+							<td>{{ $invoice->dateCreated }}</td>
+							<td>{{ $invoice->balance }}</td>
+							<td>{{ App\Item::where('id', $invoice->item_id)->value('itemName') }}</td>
+							<td class="text-right"><a href="/invoice/{{ $invoice->id }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i></a></td>
+						</tr>
+					@endforeach
 				</tbody>
 			</table>
+			<a href="/invoice/create" class="btn btn-info" role="button">New Invoice</a>
 		</div>
 
 		<div class="col-md-2"></div>
@@ -98,7 +110,7 @@
 					@endfor
 				</tbody>
 			</table>
-		</div>
+		</div> --}}
 
 	</div> <!-- End Row 2 -->
 </div>

@@ -37,7 +37,7 @@
                             <td>{{ $item->developer }}</td>
                             <td>{{ $item->releaseDate }}</td>
                             <td>{{ $item->price }}</td>
-                            <td>{{ $item->conditionID }}</td>
+                            <td>{{ $item->condition }}</td>
                             <td>{{ $item->console }}</td>
                             <td class="text-right"><a href="/item/{{ $item->id }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i></a></td>
                             <td class="text-right"><a href="/item/{{ $item->id }}/delete" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a></td>

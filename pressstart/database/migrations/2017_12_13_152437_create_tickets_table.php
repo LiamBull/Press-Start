@@ -19,8 +19,8 @@ class CreateTicketsTable extends Migration
             $table->string('comments')->nullable();
             $table->string('description');
             $table->string('status');
-            $table->string('customerID');
-            $table->string('userID');
+            $table->string('customer_id');
+            $table->string('user_id');
         });
     }
 

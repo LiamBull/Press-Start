@@ -28,23 +28,22 @@
       @foreach ($preorders as $preorder)
       <tr>
         <td>
-          <p>Item ID: {{ $preorder->itemID }}</p>
-          <p>Game Title: {{ App\Item::where('id', $preorder->itemID)->value('itemName') }} </p>
-          <p>Price: {{ App\Item::where('id', $preorder->itemID)->value('price') }}</p>
+          <p>Item ID: {{ $preorder->item_id }}</p>
+          <p>Game Title: {{ App\Item::where('id', $preorder->item_id)->value('itemName') }} </p>
+          <p>Price: {{ App\Item::where('id', $preorder->item_id)->value('price') }}</p>
       </td>
       <td>
-          <p>Customer ID: {{ $preorder->customerID }}</p>
-          <p>Customer Name: {{ App\Customer::where('id', $preorder->customerID)->value('firstName') }}&nbsp;{{ App\Customer::where('id', $preorder->customerID)->value('lastName') }}</p>
-          <p>Customer Email: {{ App\Customer::where('id', $preorder->customerID)->value('email') }}</p>
+          <p>Customer ID: {{ $preorder->customer_id }}</p>
+          <p>Customer Name: {{ App\Customer::where('id', $preorder->customer_id)->value('firstName') }}&nbsp;{{ App\Customer::where('id', $preorder->customer_id)->value('lastName') }}</p>
+          <p>Customer Email: {{ App\Customer::where('id', $preorder->customer_id)->value('email') }}</p>
       </td>
       <td>
-          <p>Status: Pending Payment</p>
-          <p>Owing: $79.99</p>
+          <p>Status: {{ $preorder->status }}</p>
+          <p>Balance: {{ $preorder->balance }}</p>
       </td>
       <td class="text-right">
-          <a href="preorder/view" class="btn btn-primary btn-sm btn-block">Update</a>
-          <button type="submit" class="btn btn-success btn-sm btn-block">Completed</button>
-          <button type="submit" class="btn btn-danger btn-sm btn-block">Cancel</button>
+          <a href="/preorder/{{ $preorder->id }}/complete" class="btn btn-success btn-sm btn-block">Complete</a>
+          <a href="/preorder/{{ $preorder->id }}/delete" class="btn btn-danger btn-sm btn-block">Cancel</a>
       </td>
   </tr>
   @endforeach

@@ -14,9 +14,8 @@ class DatabaseSeeder extends Seeder
         $this->call('UsersTableSeeder');
         $this->command->info('Users table seeded.');
 
-        $path = 'sql/inserts.sql';
-        DB::unprepared(file_get_contents($path));
-        $this->command->info('Inserts have run.');
+        $this->call('CustomersTableSeeder');
+        $this->command->info('Customers table seeded.');
     }
 }
 

@@ -25,6 +25,10 @@
 
 				<button type="submit" class="btn btn-primary">Create</button>
 			</form>
+			
+			<br />
+
+			@include('layout.errors')
 		</div>
 
 		<div class="col-md-2"></div>

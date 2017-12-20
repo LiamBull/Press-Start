@@ -23,7 +23,7 @@
 				<div class="row">
 					<div class="form-group col-md-6">
 						<label for="releaseDate">Release Date</label>
-						<input name="releaseDate" type="text" class="form-control" id="releaseDate" placeholder="YYYY-MM-DD" required/>
+						<input name="releaseDate" type="date" class="form-control" id="releaseDate" placeholder="YYYY-MM-DD" required/>
 					</div>
 					<div class="form-group col-md-6">
 						<label for="developer">Developer</label>
@@ -38,7 +38,7 @@
 
 				<div class="row">
 					<div class="form-group col-md-6">
-						<label for="formGroupType">Product Type</label>
+						<label for="productType">Product Type</label>
 						<select name="productType" class="form-control">
 						  <option value="game" selected>Game</option>
 						  <option value="console">Console</option>
@@ -46,12 +46,12 @@
 						</select>
 					</div>
 					<div class="form-group col-md-6">
-						<label for="formGroupType">Condition</label>
-						<select name="conditionID" class="form-control">
-						  <option value="new" selected>New</option>
-						  <option value="good">Good</option>
-						  <option value="okay">Okay</option>
-						  <option value="poor">Poor</option>
+						<label for="condition">Condition</label>
+						<select name="condition" class="form-control">
+						  <option value="New" selected>New</option>
+						  <option value="Good">Good</option>
+						  <option value="Okay">Okay</option>
+						  <option value="Poor">Poor</option>
 						</select>
 					</div>
 				</div>
@@ -59,7 +59,7 @@
 				<div class="row">
 					<div class="form-group col-md-6">
 						<label for="formGroupPrice">Price</label>
-						<input name="price" type="text" class="form-control" id="formGroupPrice" placeholder="$##.##" required/>
+						<input name="price" type="number" min="0.00" class="form-control" id="formGroupPrice" placeholder="$##.##" required/>
 					</div>
 					<div class="form-group col-md-6">
 						<label for="formGroupType">Console</label>
@@ -76,6 +76,10 @@
 					<a href="/item" class="btn btn-danger">Cancel</a>
 				</div>
 			</form>
+			
+			<br />
+
+			@include('layout.errors')
 		</div>
 
 		<div class="col-md-2"></div>

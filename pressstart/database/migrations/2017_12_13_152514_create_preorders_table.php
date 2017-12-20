@@ -15,9 +15,9 @@ class CreatePreordersTable extends Migration
     {
         Schema::create('preorders', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('itemID');
-            $table->string('customerID');
-            $table->string('userID');
+            $table->string('item_id');
+            $table->string('customer_id');
+            $table->string('user_id');
             $table->string('status');
             $table->string('balance');
             $table->date('dateCreated');

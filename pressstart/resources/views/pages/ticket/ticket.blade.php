@@ -39,8 +39,8 @@
 							<td>{{ $ticket->dateSubmitted }}</td>
 							<td>{{ $ticket->description }}</td>
 							<td>{{ $ticket->status }}</td>
-							<td>{{ $ticket->customerID }}</td>
-							<td>{{ $ticket->userID }}</td>
+							<td>{{ $ticket->customer_id }}</td>
+							<td>{{ $ticket->user_id }}</td>
 							<td><a href="/ticket/{{ $ticket->id }}" class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"></i></a></td>
 						</tr>
 					@endforeach

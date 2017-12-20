@@ -15,17 +15,21 @@
 
 				<div class="form-group">
 					<label for="username">User ID</label>
-					<input name="username" type="text" class="form-control" id="username" placeholder="Username" />
+					<input name="username" type="text" class="form-control" id="username" placeholder="Username" required/>
 				</div>
 
 				<div class="form-group">
 					<label for="password">Password</label>
-					<input name="password" type="password" class="form-control" id="password" placeholder="Password" />
+					<input name="password" type="password" class="form-control" id="password" placeholder="Password" required/>
 				</div>
 
 				<button type="submit" class="btn btn-primary">Sign In</button>
 
 			</form>
+
+			<br />
+
+			@include('layout.errors')
 		</div>
 
 		<div class="col-md-3"></div>

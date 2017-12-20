@@ -41,12 +41,12 @@
 
 				<div class="form-group">
 					<label for="formGroupEmail">Email</label>
-					<input name="email" type="text" class="form-control" id="formGroupEmail" placeholder="Email" value="{{ $employee->email }}" required/>
+					<input name="email" type="email" class="form-control" id="formGroupEmail" placeholder="Email" value="{{ $employee->email }}" required/>
 				</div>
 
 				<div class="form-group">
 					<label for="formGroupPhone">Phone</label>
-					<input name="phoneNumber" type="text" class="form-control" id="formGroupPhone" placeholder="Phone Number" value="{{ $employee->phoneNumber }}" required/>
+					<input name="phoneNumber" type="tel" class="form-control" id="formGroupPhone" placeholder="Phone Number" value="{{ $employee->phoneNumber }}" required/>
 				</div>
 				
 				<div class="form-group">
@@ -58,6 +58,10 @@
 					<button type="submit" class="btn btn-primary">Save Changes</button>
 				</div>
 			</form>
+			
+			<br />
+
+			@include('layout.errors')
 		</div>
 
 		<div class="col-md-2"></div>
