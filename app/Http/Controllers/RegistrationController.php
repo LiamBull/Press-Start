@@ -20,17 +20,17 @@ class RegistrationController extends Controller
     public function store(Request $request)
     {
     	$this->validate(request(), [
-    		'username' => 'required',
-    		'fullname' => 'required',
+    		'username' => 'required|unique:users',
+    		'fullname' => 'required|unique:users',
     		'type' => 'required',
-            'SIN' => 'required|regex:/[0-9]{9}/',
-            'email' => 'required|email',
-            'phonenumber' => 'required|regex:/[0-9]{10}/',
+            'SIN' => 'required|regex:/^[0-9]{9}$/|unique:users',
+            'email' => 'required|email|unique:users',
+            'phonenumber' => 'required|regex:/^[0-9]{10}$/|unique:users',
     		'address' => 'required',
     		'password' => 'required|confirmed'
     	]);
 
-        if (User::where('email', '=', $request->email)->exists())
+        /*if (User::where('email', '=', $request->email)->exists())
         {
             return back()->withErrors(['Employee with this email already exists.']);
         }
@@ -43,7 +43,7 @@ class RegistrationController extends Controller
             return back()->withErrors(['Employee with this SIN already exists.']);   
         }
         else
-        {
+        {*/
             $user = User::create([
                 'username' => request('username'),
                 'fullname' => request('fullname'),
@@ -56,6 +56,6 @@ class RegistrationController extends Controller
             ]);
 
             return redirect('/employee');
-        }
+        //}
     }
 }

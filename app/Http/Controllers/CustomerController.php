@@ -38,31 +38,20 @@ class CustomerController extends Controller
         $this->validate(request(), [
             'firstName' => 'required',
             'lastName' => 'required',
-            'phoneNumber' => 'required|regex:/[0-9]{10}/',
-            'email' => 'required|email'
+            'phoneNumber' => 'required|regex:/^[0-9]{10}$/|unique:customers',
+            'email' => 'required|email|unique:customers'
         ]);
+    
+        $customer = new Customer;
 
-        if (Customer::where('email', '=', $request->email)->exists())
-        {
-            return back()->withErrors(['Customer with this email already exists.']);
-        }
-        elseif (Customer::where('phoneNumber', '=', $request->phoneNumber)->exists())
-        {
-            return back()->withErrors(['Customer with this phone number already exists.']);
-        }
-        else
-        {   
-            $customer = new Customer;
+        $customer->firstName = $request->firstName;
+        $customer->lastName = $request->lastName;
+        $customer->phoneNumber = $request->phoneNumber;
+        $customer->email = $request->email;
 
-            $customer->firstName = $request->firstName;
-            $customer->lastName = $request->lastName;
-            $customer->phoneNumber = $request->phoneNumber;
-            $customer->email = $request->email;
+        $customer->save();
 
-            $customer->save();
-
-            return redirect('/customer');
-        }
+        return redirect('/customer');
     }
 
     public function update(Request $request, $id)
@@ -70,36 +59,20 @@ class CustomerController extends Controller
         $this->validate(request(), [
             'firstName' => 'required',
             'lastName' => 'required',
-            'phoneNumber' => 'required|regex:/[0-9]{10}/',
-            'email' => 'required|email'
+            'phoneNumber' => 'required|regex:/^[0-9]{10}$/|unique:customers,phoneNumber,'.$id,
+            'email' => 'required|email|unique:customers,email,'.$id
         ]);
 
         $customer = Customer::find($id);
 
-        $customer->email = "";
-        $customer->phoneNumber = "";
+        $customer->firstName = $request->firstName;
+        $customer->lastName = $request->lastName;
+        $customer->phoneNumber = $request->phoneNumber;
+        $customer->email = $request->email;
 
         $customer->save();
 
-        if (Customer::where('email', '=', $request->email)->exists())
-        {
-            return back()->withErrors(['Customer with this email already exists.']);
-        }
-        elseif (Customer::where('phoneNumber', '=', $request->phoneNumber)->exists())
-        {
-            return back()->withErrors(['Customer with this phone number already exists.']);
-        }
-        else
-        {
-            $customer->firstName = $request->firstName;
-            $customer->lastName = $request->lastName;
-            $customer->phoneNumber = $request->phoneNumber;
-            $customer->email = $request->email;
-
-            $customer->save();
-
-            return redirect('/customer');
-        }
+        return redirect('/customer');
     }
 
     public function delete($id)

@@ -10,7 +10,7 @@
 			<p class="lead text-center">
 				Welcome to the new employee portal for Press Start! Below you'll find training
 				guides for the new employee website. Using the navigation bar above, you'll be 
-				able to navigate to the three main areas of the application.
+				able to navigate to the main areas of the application.
 			</p>
 		</div>
 	</div> <!-- End of Row 1 -->

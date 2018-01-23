@@ -26,51 +26,28 @@ class EmployeeController extends Controller
 	public function update(Request $request, $id)
     {
         $this->validate(request(), [
-            'userName' => 'required',
-            'fullName' => 'required',
+            'userName' => 'required|unique:users,userName,'.$id,
+            'fullName' => 'required|unique:users,fullName,'.$id,
             'type' => 'required',
-            'SIN' => 'required|regex:/[0-9]{9}/',
-            'email' => 'required|email',
-            'phoneNumber' => 'required|regex:/[0-9]{10}/',
+            'SIN' => 'required|regex:/[0-9]{9}/|unique:users,SIN,'.$id,
+            'email' => 'required|email|unique:users,email,'.$id,
+            'phoneNumber' => 'required|regex:/^[0-9]{10}$/|unique:users,phonenumber,'.$id,
             'address' => 'required'
         ]);
 
-        if (User::where('email', '=', $request->email)->exists())
-        {
-            return back()->withErrors(['Employee with this email already exists.']);
-        }
-        elseif (User::where('phonenumber', '=', $request->phonenumber)->exists())
-        {
-            return back()->withErrors(['Employee with this phone number already exists.']);
-        }
-        elseif (User::where('SIN', '=', $request->SIN)->exists())
-        {
-            return back()->withErrors(['Employee with this SIN already exists.']);  
-        }
-        elseif (User::where('userName', '=', $request->userName)->exists())
-        {
-            return back()->withErrors(['Employee with this username already exists.']);
-        }
-        elseif (User::where('fullName', '=', $request->userName)->exists())
-        {
-            return back()->withErrors(['Employee with this name already exists.']);
-        }
-        else
-        {
-            $employee = User::find($id);
+        $employee = User::find($id);
 
-            $employee->userName = $request->userName;
-            $employee->fullName = $request->fullName;
-            $employee->type = $request->type;
-            $employee->SIN = $request->SIN;
-            $employee->email = $request->email;
-            $employee->phoneNumber = $request->phoneNumber;
-            $employee->address = $request->address;
+        $employee->userName = $request->userName;
+        $employee->fullName = $request->fullName;
+        $employee->type = $request->type;
+        $employee->SIN = $request->SIN;
+        $employee->email = $request->email;
+        $employee->phoneNumber = $request->phoneNumber;
+        $employee->address = $request->address;
 
-            $employee->save();
+        $employee->save();
 
-            return redirect('/employee');
-        }
+        return redirect('/employee');
     }
 
 	public function delete($id)
