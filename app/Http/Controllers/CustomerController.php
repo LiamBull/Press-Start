@@ -16,7 +16,7 @@ class CustomerController extends Controller
 
     public function index()
     {
-        $customers = DB::table('customers')->paginate(10);
+        $customers = DB::table('customers')->paginate(20);
 
         return view('pages.customer.customer', ['customers' => $customers]);
     }
